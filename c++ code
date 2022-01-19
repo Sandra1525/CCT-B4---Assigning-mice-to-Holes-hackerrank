@@ -1,0 +1,26 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int cmp(const void* a,const void* b)
+{
+    return *(int*)a-*(int*)b;
+}
+
+int main() {
+ int n,i;
+    scanf("%d",&n);
+    int m[n],h[n],d[n];
+    for(i=0;i<n;i++)scanf("%d",&m[i]);
+    for(i=0;i<n;i++)scanf("%d",&h[i]);
+    qsort(m,n,sizeof(int),cmp);
+    qsort(h,n,sizeof(int),cmp);
+    for(i=0;i<n;i++){ d[i]=abs(m[i]-h[i]);}
+    int max=-99;
+    for(i=0;i<n;i++){if(d[i]>max)max=d[i];}
+    printf("%d",max);
+    return 0;
+ 
+}
